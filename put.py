@@ -2,7 +2,7 @@
 """
 Created on Thu Jul 18 15:58:06 2024
 
-@author: UI873286
+@author: Eli Reese-Wirpsa
 """
 
 import math
