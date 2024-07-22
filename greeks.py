@@ -5,7 +5,7 @@ Created on Thu Jul 18 16:11:43 2024
 @author: Eli Reese-Wirpsa
 """
 from call import calc_D_one
-from scipy import norm
+from scipy.stats import norm
 import math
 
 def delta_calc(optionT, strike, stock_Price, rf, vol, t ):
@@ -18,7 +18,7 @@ def delta_calc(optionT, strike, stock_Price, rf, vol, t ):
         
 def gamma_calc(strike, stock_Price, rf, vol, t ):
     d_one = calc_D_one(strike, stock_Price, rf, vol, t)
-    gamma = norm.pdf(d_one) / stock_Price * vol * math.sqrt(t)
+    gamma = math.exp(-d_one**2 / 2) / (stock_Price * vol * math.sqrt(2 * math.pi * t))
     
     return gamma
 
@@ -28,4 +28,3 @@ def vega_calc(strike, stock_Price, rf, vol, t):
     return vega
 
 
-    
